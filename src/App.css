@@ -1,0 +1,20 @@
+*{
+  box-sizing:border-box;
+}
+:root {
+  --font-heading: "Poppins", sans-serif;
+  --font-para: "Inter", sans-serif;
+  --font-number: "Orbitron", sans-serif;
+}
+
+h1{
+  font-family: var(--font-heading);
+}
+p{
+  font-family: var(--font-para);
+}
+
+nav{
+  background-color: rgba(15, 23, 42, 0.9);
+  /* backdrop-filter: blur(4px); */
+}
