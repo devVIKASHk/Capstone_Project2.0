@@ -39,7 +39,7 @@ const Login = () => {
                                 <button type="submit" className='border-2 border-fuchsia-500 rounded-md w-full px-[2vw] sm:px-4 py-2 text-fuchsia-300 hover:text-black bg-gradient-to-r from-fuchsia-600 via-purple-500 to-pink-500 transition-all duration-300 text-[4vw] sm:text-2xl sm:font-semibold'>Login</button>
 
                                 {/* Links */}
-                                <div className='flex flex-col sm:flex-row justify-between items-center text-[4vw] sm:text-sm text-fuchsia-400 mt-2 gap-2 '>
+                                <div className='flex flex-col sm:flex-row justify-between items-center text-[3vw] sm:text-sm text-fuchsia-400 mt-2 gap-2 '>
 
                                     <a href="#" className='hover:underline'>Forgot Password?</a>
                                     <a href="#" className='hover:underline'>Create an Account</a>
