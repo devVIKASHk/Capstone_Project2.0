@@ -16,33 +16,33 @@ const router = createBrowserRouter(
     <>
       <Route path='/' element={<Layout />}>
 
-        <Route path='' element={<Home />} />
-        <Route path='user'>
-          <Route path='/user/challenges' element={<Challenges />} />
-          <Route path='/user/leaderboard' element={<LeaderBoard />} />
-          <Route path='/user/profile' element={<Profile />} />
-          
+          <Route path='' element={<Home />} />
+          <Route path='user'>
+            <Route path='/user/challenges' element={<Challenges />} />
+            <Route path='/user/leaderboard' element={<LeaderBoard />} />
+            <Route path='/user/profile' element={<Profile />} />
+            
 
+          </Route>
+          <Route path='about' element={<About />} />
+    
+      </Route>
+
+        <Route path='/' element={<LoginLayout/>}>
+              
+              
+          <Route path='/user/login' element={<Login/>}/>
+        
         </Route>
-        <Route path='about' element={<About />} />
-        
-      </Route>
-
-      <Route path='/' element={<LoginLayout/>}>
-            
-            
-        <Route path='/user/login' element={<Login/>}/>
-      
-      </Route>
 
 
         
 
 
 
-      <Route path='*' element={<PageNotFound />} />
+        <Route path='*' element={<PageNotFound />} />
 
-    </>
+  </>
 
 
   )
