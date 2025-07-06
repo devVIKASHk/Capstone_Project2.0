@@ -30,10 +30,10 @@ const Login = () => {
                             <form action="" className='flex flex-col gap-6'>
 
                                 {/* Username input */}
-                                <input type="text" placeholder='Username' className='border-2 border-fuchsia-500 rounded-md w-full px-[2vw] sm:px-4 py-2 bg-gradient-to-r from-fuchsia-600 via-purple-500 to-pink-500 bg-clip-text text-transparent focus:outline-none' />
+                                <input type="text" placeholder='Username' className='border-2 border-fuchsia-500 rounded-md w-full px-[2vw] sm:px-4 py-2 bg-gradient-to-r from-fuchsia-600 via-purple-500 to-pink-500 bg-clip-text text-transparent focus:outline-none caret-fuchsia-600'  />
 
                                 {/* Password input */}
-                                <input type="password" placeholder="Password" className='border-2 border-fuchsia-500 rounded-md w-full px-[2vw] sm:px-4 py-2 bg-gradient-to-r from-fuchsia-600 via-purple-500 to-pink-500 bg-clip-text text-transparent focus:outline-none' />
+                                <input type="password" placeholder="Password" className='border-2 border-fuchsia-500 rounded-md w-full px-[2vw] sm:px-4 py-2 bg-gradient-to-r from-fuchsia-600 via-purple-500 to-pink-500 bg-clip-text text-transparent focus:outline-none caret-fuchsia-600' />
 
                                 {/* Submit button */}
                                 <button type="submit" className='border-2 border-fuchsia-500 rounded-md w-full px-[2vw] sm:px-4 py-2 text-fuchsia-300 hover:text-black bg-gradient-to-r from-fuchsia-600 via-purple-500 to-pink-500 transition-all duration-300 text-[4vw] sm:text-2xl sm:font-semibold'>Login</button>
