@@ -35,7 +35,7 @@ const links = [
     {
         link: 'About',
         path: '/about',
-        icon: <FcAbout />
+        icon: <FcAbout/>
     }
 ]
 
