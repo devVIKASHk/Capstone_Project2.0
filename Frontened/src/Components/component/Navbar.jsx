@@ -35,13 +35,23 @@ const links = [
     {
         link: 'About',
         path: '/about',
-        icon: <FcAbout/>
+        icon: <FcAbout />
     }
 ]
 
 const Navbar = () => {
 
     const [isMenu, setMenu] = React.useState(false);
+
+    const [onLoginPage, setLogin] = React.useState(() => {
+        const saved = localStorage.getItem("onLoginPage");
+        return saved ? JSON.parse(saved) : false;  // default is false
+    });
+
+
+    React.useEffect(() => {
+        localStorage.setItem("onLoginPage", JSON.stringify(onLoginPage));
+    }, [onLoginPage]);
 
 
 
@@ -96,8 +106,19 @@ const Navbar = () => {
                                         md:gap-3 md:px-2
                                        lg:gap-3 lg:text-[1.2rem] lg:px-4  relative  '>
                             <div className='md:h-[25px] lg:h-[42px] w-[2px] bg-gradient-to-r from-fuchsia-600 via-purple-500 to-pink-500 absolute left-0'></div>
-                            <button className='px-3.5 h-[50%] bg-gradient-to-r from-fuchsia-600 via-purple-500 to-pink-500 md:rounded-md lg:rounded-lg text-gray-200  '>Login</button>
-                            {/* <div className='md:w-[27px] md:h-[27px] lg:w-[40px] lg:h-[40px] rounded-full bg-gradient-to-r from-fuchsia-600 via-purple-500 to-pink-500'></div> */}
+
+
+
+                            {
+                                onLoginPage ?
+                                    <NavLink
+                                        onClick={() => setLogin(false)}
+                                        to='/user/login' className='px-3.5 py-0.9 bg-gradient-to-r from-fuchsia-600 via-purple-500 to-pink-500 md:rounded-md lg:rounded-lg text-gray-200'>Signup</NavLink>
+                                    :
+                                    <NavLink
+                                        onClick={() => setLogin(true)}
+                                        to='/user/login' className='px-3.5 py-0.9 bg-gradient-to-r from-fuchsia-600 via-purple-500 to-pink-500 md:rounded-md lg:rounded-lg text-gray-200  '>Login</NavLink>
+                            }
 
                         </div>
 
