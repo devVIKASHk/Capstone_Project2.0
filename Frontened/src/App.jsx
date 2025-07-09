@@ -9,6 +9,7 @@ import LeaderBoard from './Components/Pages/LeaderBoard/LeaderBoard';
 import Profile from './Components/Pages/Profile/Profile';
 import Home from './Components/Pages/Home/Home';
 import Login from './Components/Pages/Login/Login';
+import Register from './Components/Pages/Register/Register';
 import LoginLayout from './Components/component/LoginLayout';
 
 const router = createBrowserRouter(
@@ -32,6 +33,7 @@ const router = createBrowserRouter(
               
               
           <Route path='/user/login' element={<Login/>}/>
+          <Route path='/user/register' element={<Register/>}/>
         
         </Route>
 

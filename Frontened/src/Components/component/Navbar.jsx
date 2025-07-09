@@ -113,7 +113,7 @@ const Navbar = () => {
                                 onLoginPage ?
                                     <NavLink
                                         onClick={() => setLogin(false)}
-                                        to='/user/login' className='px-3.5 py-0.9 bg-gradient-to-r from-fuchsia-600 via-purple-500 to-pink-500 md:rounded-md lg:rounded-lg text-gray-200'>Signup</NavLink>
+                                        to='/user/register' className='px-3.5 py-0.9 bg-gradient-to-r from-fuchsia-600 via-purple-500 to-pink-500 md:rounded-md lg:rounded-lg text-gray-200'>Signup</NavLink>
                                     :
                                     <NavLink
                                         onClick={() => setLogin(true)}

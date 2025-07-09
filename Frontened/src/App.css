@@ -1,5 +1,18 @@
 *{
   box-sizing:border-box;
+  
+  
+}
+body{
+  background-color: black;
+  color: white;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #0f172a inset !important; /* your desired input background */
+  -webkit-text-fill-color: rgb(251, 54, 251) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
 }
 :root {
   --font-heading: "Poppins", sans-serif;

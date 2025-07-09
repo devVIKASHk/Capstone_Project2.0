@@ -1,7 +1,52 @@
 import React from 'react';
 import login from '../../../assets/login.png'
+import {useNavigate } from 'react-router-dom';
 
 const Login = () => {
+
+    //!Hooks
+
+   
+
+    const navigate = useNavigate();
+
+
+   //TODO : Tailwind style 
+
+   const inputFieldStyle = 'border-2 border-fuchsia-500 rounded-md w-full px-[2vw] sm:px-4 py-2 bg-gradient-to-r from-fuchsia-600 via-purple-500 to-pink-500 bg-clip-text text-transparent focus:outline-none caret-fuchsia-600 selection:text-fuchsia-700 ';
+    
+    const buttonStyle='border-2 border-fuchsia-500 rounded-md w-full px-[2vw] sm:px-4 py-2 text-fuchsia-300 hover:text-black bg-gradient-to-r from-fuchsia-600 via-purple-500 to-pink-500 transition-all duration-300 text-[4vw] sm:text-2xl sm:font-semibold';
+    
+
+
+
+
+    //! Funtions 
+
+
+
+
+    const handleFormSubmissoion = async (e)=>{
+
+        e.preventDefault();
+        
+        navigate('/')
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+    
     return (
 
 
@@ -25,18 +70,22 @@ const Login = () => {
                         <h3 className='text-[5svw] md:text-5xl lg:text-4xl text-fuchsia-600 text-center relative transform lg:translate-y-10 md:translate-y-20 translate-y-10 opacity-[0.8]'>Login</h3>
 
                         {/* Form container */}
-                        <div className='absolute bottom-0 w-full h-[80%] px-[4vw] sm:px-10 sm:py-5 rounded-b-lg'>
+                        <div className='absolute bottom-0 w-full h-[80%] px-[4vw] sm:px-10 sm:py-5  rounded-b-lg '>
 
-                            <form action="" className='flex flex-col gap-6'>
+                            <form onSubmit={handleFormSubmissoion} className='flex flex-col gap-6'>
 
                                 {/* Username input */}
-                                <input type="text" placeholder='Username' className='border-2 border-fuchsia-500 rounded-md w-full px-[2vw] sm:px-4 py-2 bg-gradient-to-r from-fuchsia-600 via-purple-500 to-pink-500 bg-clip-text text-transparent focus:outline-none caret-fuchsia-600 '  />
+
+                                <input type="email" placeholder='Username' className={inputFieldStyle} name='email'  />
 
                                 {/* Password input */}
-                                <input type="password" placeholder="Password" className='border-2 border-fuchsia-500 rounded-md w-full px-[2vw] sm:px-4 py-2 bg-gradient-to-r from-fuchsia-600 via-purple-500 to-pink-500 bg-clip-text text-transparent focus:outline-none caret-fuchsia-600' />
+
+                                <input type="password" placeholder="Password" className={inputFieldStyle} name='password'  />
 
                                 {/* Submit button */}
-                                <button type="submit" className='border-2 border-fuchsia-500 rounded-md w-full px-[2vw] sm:px-4 py-2 text-fuchsia-300 hover:text-black bg-gradient-to-r from-fuchsia-600 via-purple-500 to-pink-500 transition-all duration-300 text-[4vw] sm:text-2xl sm:font-semibold'>Login</button>
+                               
+
+                                <button type="submit" className={buttonStyle} >Login</button>
 
                                 {/* Links */}
                                 <div className='flex flex-col sm:flex-row justify-between items-center text-[3vw] sm:text-sm text-fuchsia-400 mt-2 gap-2 '>
