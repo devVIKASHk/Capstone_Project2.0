@@ -7,6 +7,22 @@
   "type": "module",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node --watch app.js",
+    "generate": "drizzle-kit generate",
+    "migrate": "drizzle-kit migrate",
+    "studio": "drizzle-kit studio"
+  },
+  "dependencies": {
+    "argon2": "^0.43.0",
+    "chalk": "^5.4.1",
+    "cors": "^2.8.5",
+    "dotenv": "^17.1.0",
+    "drizzle-orm": "^0.44.2",
+    "express": "^5.1.0",
+    "mysql2": "^3.14.1",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.31.4"
   }
 }

@@ -1,19 +1,85 @@
 import React from 'react';
-import signupImg from '../../../assets/login.png'; 
+import signupImg from '../../../assets/login.png';
+import { useNavigate } from 'react-router-dom';
+import { useGlobalContext } from '../../component/globalContext/GlobalContext';
 
 const Register = () => {
- 
+  const {handleMessage} = useGlobalContext();
+
+  const navigate = useNavigate()
+  const [registrationData, setRegistrationData] = React.useState({
+    name: '',
+    email: '',
+    password: '',
+  });
+
+  const [err, setError] = React.useState(null);
+
+
+
+
+  //* Style for the input fields and button
 
   const inputFieldStyle =
     'border-2 border-fuchsia-500 rounded-md w-full px-[2vw] sm:px-4 py-2 bg-gradient-to-r from-fuchsia-600 via-purple-500 to-pink-500 bg-clip-text text-transparent focus:outline-none caret-fuchsia-600 selection:text-fuchsia-700';
 
   const buttonStyle =
-    'border-2 border-fuchsia-500 rounded-md w-full px-[2vw] sm:px-4 py-2 text-fuchsia-300 hover:text-black bg-gradient-to-r from-fuchsia-600 via-purple-500 to-pink-500 transition-all duration-300 text-[4vw] sm:text-2xl sm:font-semibold';
+    'border-2 border-fuchsia-500 rounded-md w-full px-[2vw] sm:px-4 sm:py-1 md:py-[0] text-fuchsia-300 hover:text-black bg-gradient-to-r from-fuchsia-600 via-purple-500 to-pink-500 transition-all duration-300 text-[4vw] sm:text-[20px] ';
 
-  const handleSignupSubmission = async (e) => {
+
+  //! Handling input changes
+
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+    setRegistrationData((prevData) => ({ ...prevData, [name]: value }))
+    setError(null)
+  }
+
+
+  //! Function to handle form submission
+
+  const handleRegistrationSubmission = async (e) => {
     e.preventDefault();
+    try {
+      const res = await fetch('/api/user/register',
+
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(registrationData)
+        }
+
+      )
+      const result = await res.json();
+      if (!res.ok) {
+
+        if (res.status === 400) {
+          
+          setError(result.error);
+          return navigate('/user/register');
+        }
+        else{
+          throw new Error({message:'Something went wrong!'})
+        }
+
+      }
+
+      handleMessage(result.message);
+
+      navigate('/')
+
+
+
+
+
+    } catch (err) {
+      console.error("Error in registration:", err.message);
+    }
+
     
+
   };
+
 
   return (
     <div
@@ -41,7 +107,7 @@ const Register = () => {
             {/* Form container */}
             <div className="absolute bottom-1.5 w-full h-[83%] px-[4vw] sm:px-10 sm:py-5  rounded-b-lg">
               <form
-                onSubmit={handleSignupSubmission}
+                onSubmit={handleRegistrationSubmission}
                 className="flex flex-col gap-6"
               >
                 {/* Name */}
@@ -50,7 +116,9 @@ const Register = () => {
                   placeholder="Full Name"
                   className={inputFieldStyle}
                   name="name"
-                  required
+                  value={registrationData.name}
+                  onChange={handleInput}
+
                 />
 
                 {/* Email */}
@@ -59,11 +127,12 @@ const Register = () => {
                   placeholder="Email"
                   className={inputFieldStyle}
                   name="email"
-                  required
+                  value={registrationData.email}
+                  onChange={handleInput}
                 />
 
-  
-                
+
+
 
                 {/* Password */}
                 <input
@@ -71,10 +140,13 @@ const Register = () => {
                   placeholder="Password"
                   className={inputFieldStyle}
                   name="password"
-                  required
+                  value={registrationData.password}
+                  onChange={handleInput}
                 />
 
-                
+                {
+                  err? (<p className='text-red-600 text-[12px] bg-gray-800 w-[100%] my-[-10px] py-1 px-2 border-l-red-500 border-l-[2px] whitespace-nowrap overflow-scroll  ' style={{scrollbarWidth:'none'}}>{err}</p>):null
+                }
 
                 {/* Submit */}
                 <button type="submit" className={buttonStyle}>
@@ -97,6 +169,7 @@ const Register = () => {
       </div>
     </div>
   );
-};
+}
+
 
 export default Register;
